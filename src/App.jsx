@@ -1,6 +1,11 @@
 // import './App.css'
 
 import styled from 'styled-components'
+import { RegularList } from './RegularList';
+import { NumberedList } from './NumberedList';
+
+import { SmallPersonListItem, LargePersonListItem } from './people';
+import { SmallProductListItem, LargeProductListItem } from './products';
 
 import { SplitScreen } from './SplitScreen';
 
@@ -32,15 +37,69 @@ const RightHandComponent = ({ color }) => {
   return <StyledP>Right! {color}</StyledP>
 }
 
+const products = [
+  {
+    name: 'Product 1',
+    price: '$100',
+    description: 'This is a product',
+    rating: 4.5
+  },
+  {
+    name: 'Product 2',
+    price: '$200',
+    description: 'This is a product',
+    rating: 3.5
+  },
+  {
+    name: 'Product 3',
+    price: '$300',
+    description: 'This is a product',
+    rating: 2.75
+  }
+
+]
+
+const people = [
+  {
+    name: 'John',
+    age: 30,
+    hairColor: 'brown',
+    hobbies: ['running', 'reading', 'coding'],
+  },
+  {
+    name: 'Jane',
+    age: 25,
+    hairColor: 'blonde',
+    hobbies: ['playing guitar', 'reading', 'coding'],
+  },
+  {
+    name: 'Bob',
+    age: 20,
+    hairColor: 'black',
+    hobbies: ['running', 'swimming', 'coding'],
+  }
+];
+
 function App() {
 
   return (
-    <SplitScreen
-      leftWeight={1}
-      rightWeight={3}>
-        <LeftHandComponent name="Leffftttt..."/>
-        <RightHandComponent color="Blueeee"/>
-    </SplitScreen>
+    <>
+      <SplitScreen
+        leftWeight={1}
+        rightWeight={3}>
+          <LeftHandComponent name="Leffftttt..."/>
+          <RightHandComponent color="Blueeee"/>
+      </SplitScreen>
+      <SplitScreen>
+        <RegularList items={people} resourceName="person" itemComponent={SmallPersonListItem} />
+        <RegularList items={people} resourceName="person" itemComponent={LargePersonListItem} />
+      </SplitScreen>
+      <hr/>
+      <SplitScreen>
+        <NumberedList items={products} resourceName="product" itemComponent={SmallProductListItem} />
+        <RegularList items={products} resourceName="product" itemComponent={LargeProductListItem} />
+      </SplitScreen>
+    </>
   )
 }
 
