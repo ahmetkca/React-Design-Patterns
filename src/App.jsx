@@ -24,12 +24,12 @@ const StyledP = styled.p`
   text-align: center;
 `
 
-const LeftHandComponent = () => {
-  return <StyledH1>Left!</StyledH1>;
+const LeftHandComponent = ({ name }) => {
+  return <StyledH1>Left! {name}</StyledH1>;
 }
 
-const RightHandComponent = () => {
-  return <StyledP>Right!</StyledP>
+const RightHandComponent = ({ color }) => {
+  return <StyledP>Right! {color}</StyledP>
 }
 
 function App() {
@@ -38,8 +38,8 @@ function App() {
     <SplitScreen
       leftWeight={1}
       rightWeight={3}>
-        <LeftHandComponent />
-        <RightHandComponent />
+        <LeftHandComponent name="Leffftttt..."/>
+        <RightHandComponent color="Blueeee"/>
     </SplitScreen>
   )
 }
