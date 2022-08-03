@@ -36,10 +36,11 @@ function App() {
 
   return (
     <SplitScreen
-      left={LeftHandComponent}
-      right={RightHandComponent}
       leftWeight={1}
-      rightWeight={3} />
+      rightWeight={3}>
+        <LeftHandComponent />
+        <RightHandComponent />
+    </SplitScreen>
   )
 }
 
