@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+// import './App.css'
+
+import styled from 'styled-components'
+
+import { SplitScreen } from './SplitScreen';
+
+const StyledH1 = styled.h1`
+  background-color: #f00;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+`
+
+const StyledP = styled.p`
+  background-color: #0fff0f;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+`
+
+const LeftHandComponent = () => {
+  return <StyledH1>Left!</StyledH1>;
+}
+
+const RightHandComponent = () => {
+  return <StyledP>Right!</StyledP>
+}
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <SplitScreen
+      left={LeftHandComponent}
+      right={RightHandComponent} />
   )
 }
 
