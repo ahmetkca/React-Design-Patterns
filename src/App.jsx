@@ -37,7 +37,9 @@ function App() {
   return (
     <SplitScreen
       left={LeftHandComponent}
-      right={RightHandComponent} />
+      right={RightHandComponent}
+      leftWeight={1}
+      rightWeight={3} />
   )
 }
 
