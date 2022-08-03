@@ -8,6 +8,7 @@ import { SmallPersonListItem, LargePersonListItem } from './people';
 import { SmallProductListItem, LargeProductListItem } from './products';
 
 import { SplitScreen } from './SplitScreen';
+import { Modal } from './Modal';
 
 const StyledH1 = styled.h1`
   background-color: #f00;
@@ -84,6 +85,12 @@ function App() {
 
   return (
     <>
+      <Modal>
+        <SplitScreen>
+          <RegularList items={people} resourceName="person" itemComponent={SmallPersonListItem} />
+          <RegularList items={products} resourceName="product" itemComponent={SmallProductListItem} />  
+        </SplitScreen>
+      </Modal>
       <SplitScreen
         leftWeight={1}
         rightWeight={3}>
