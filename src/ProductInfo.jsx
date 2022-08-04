@@ -2,7 +2,7 @@ export const ProductInfo = ({ product }) => {
     
     const { name, price, description, rating } = product;
     
-    return (
+    return product ? (
         <>
             <h3>{name}</h3>
             <p>Price: {price}</p>
@@ -10,5 +10,5 @@ export const ProductInfo = ({ product }) => {
             <p>{description}</p>
             <p>Average Rating: {rating}</p>
         </>
-    );
+    ) : <div>Loading...</div>;
 }

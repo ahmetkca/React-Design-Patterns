@@ -1,16 +1,18 @@
 export const UserInfo = ({ user }) => {
     
-        const { name, age, hairColor, hobbies } = user;
+        if (!user) {
+            return <div>Loading...</div>
+        }
     
-        return (
+        return user ? (
             <>
-                <h3>{name}</h3>
-                <p>Age: {age}</p>
-                <p>Hair Color: {hairColor}</p>
+                <h3>{user.name}</h3>
+                <p>Age: {user.age}</p>
+                <p>Hair Color: {user.hairColor}</p>
                 <h4>Hobbies:</h4>
                 <ul>
-                    {hobbies.map((hobby, key) => <li key={key + hobby}>{hobby}</li>)}
+                    {user.hobbies.map((hobby, key) => <li key={key + hobby}>{hobby}</li>)}
                 </ul>
             </>
-        );
+        ) : <div>Loading...</div>;
     }

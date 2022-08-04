@@ -1,8 +1,16 @@
 const express = require('express');
 
+const cors = require('cors');
+
+
+
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
+
+
 
 let currentUser = {
     id: 1,
@@ -61,6 +69,7 @@ const products = [
 ]
 
 app.get('/current-user', (req, res) => {
+    console.log('fetching current user')
     res.json(currentUser);
 });
 
