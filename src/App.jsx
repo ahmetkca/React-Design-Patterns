@@ -1,32 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
+import React, { useState } from 'react'
+
+import { UncontrolledForm } from './UncontrolledForm'
+import { ControlledForm } from './ControlledForm'
+import { UncontrolledModal } from './UncontrolledModal'
+import { ControlledModal } from './ControlledModal'
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggle = () => setIsOpen(!isOpen)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button onClick={handleToggle}>{ isOpen ? 'Hide Modal' : 'Show Modal' }</button>
+      <ControlledModal isOpen={isOpen} onRequestToggle={handleToggle}>
+        <h1>Controlled Modal</h1>
+        <p>This is a controlled modal.</p>
+        <p>You can close it by clicking outside of it.</p>
+        <ControlledForm />
+      </ControlledModal>
+      <hr/>
+
+      <UncontrolledForm />
+      <ControlledForm />
+      <hr/>
+      <UncontrolledModal>
+        <h1>Uncontrolled Modal</h1>
+        <p>This is a uncontrolled  modal which means no other component can open or close this modal</p>
+        <ControlledForm />
+      </UncontrolledModal>
     </div>
   )
 }

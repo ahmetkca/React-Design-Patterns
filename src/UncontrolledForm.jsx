@@ -23,6 +23,7 @@ export const UncontrolledForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h2>Uncontrolled Input</h2>
             <label>
                 Name:
                 <input ref={nameInput} type="text" name="name" placeholder='name'/>
