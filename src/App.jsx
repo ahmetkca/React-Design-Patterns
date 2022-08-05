@@ -7,6 +7,7 @@ import { ControlledForm } from './ControlledForm'
 import { UncontrolledModal } from './UncontrolledModal'
 import { ControlledModal } from './ControlledModal'
 import { UncontrolledOnboardingFlow } from './UncontrolledOnboardingFlow'
+import { ControlledOnboardingFlow } from './ControlledOnboardingFlow'
 
 const StepOne = ({ goToNext }) => (
   <>
@@ -17,9 +18,17 @@ const StepOne = ({ goToNext }) => (
 const StepTwo = ({ goToNext }) => (
   <>
     <h1>Step 2</h1>
-    <button onClick={() => goToNext({ passcode: 112233 })}>Next</button>
+    <button onClick={() => goToNext({ passcode: 1223334444 })}>Next</button>
   </>
 );
+
+const StepOptional = ({ goToNext }) => (
+  <>
+    <h1>Step Optional</h1>
+    <button onClick={() => goToNext({ optional: true })}>Next</button>
+  </>
+)
+
 
 const StepThird = ({ goToNext }) => (
   <>
@@ -35,8 +44,30 @@ function App() {
 
   const handleToggle = () => setIsOpen(!isOpen)
 
+  const [onboardingData, setOnboardingData] = useState({})
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const onNext = (currentData) => {
+      setOnboardingData({ ...onboardingData, ...currentData })
+      setCurrentStep(currentStep + 1)
+  }
+
   return (
     <div className="App">
+      <ControlledOnboardingFlow 
+        currentStep={currentStep}
+        onNext={onNext}
+        onFinish={(finishedData => {
+          console.log(finishedData)
+          alert(`Finished with data: ${JSON.stringify(finishedData)}`);
+        })} >
+        <StepOne />
+        <StepTwo />
+        {onboardingData?.passcode === 122333 ? <StepOptional /> : null}
+        <StepThird />
+      </ControlledOnboardingFlow>
+
+
       <UncontrolledOnboardingFlow onFinish={(onboardingData => {
         console.log(onboardingData);
         alert(`Onboarding finished with data: ${JSON.stringify(onboardingData)}`);
