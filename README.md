@@ -12,5 +12,5 @@
 > ***Controlled Component:*** Components that do not keep track of their own state--all state is passed in as props (that is, when we use the useState Hook with text inputs)
 
 [Higher-Order Components Design pattern](https://github.com/ahmetkca/React-Design-Patterns/tree/higher-order-components)
-> A component that returns another component instead of JSX. Their use case could be sharing complex behavior between multiple components (much like with container components)
+> A component that returns another component instead of JSX. Their use case could be sharing complex behavior between multiple components (much like with container components). Another use case could be adding <u>extra functionality</u> to existing components
 
