@@ -3,8 +3,9 @@ import './App.css'
 import { printProps } from './printProps'
 import { withUser } from './withUser';
 import { UserInfo } from './UserInfo'
+import { UserInfoForm } from './UserInfoForm';
 
-const UserInfoWrapped = printProps(UserInfo);
+const UserInfoWrapped = printProps(UserInfo);  
 
 const UserInfoWithTitle = ({ user }) => {
     return (
@@ -35,6 +36,9 @@ function App() {
 
   return (
     <div className="App">
+      <UserInfoForm />
+      <hr />
+
       <UserInfoWrapped a={"b"} b={1} c={[1, 2, 3]} d={obj} {...obj} />
       <hr />
       <UserInfoWithUser />

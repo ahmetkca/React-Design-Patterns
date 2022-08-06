@@ -91,6 +91,8 @@ app.post('/users/:id', (req, res) => {
     user = { ...user, ...updatedUser };
     users = users.map(u => u.id === id ? user : u);
 
+    console.log(user);
+    console.log(users);
     res.json(user);
 });
 
