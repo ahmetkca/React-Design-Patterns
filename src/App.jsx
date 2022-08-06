@@ -4,6 +4,8 @@ import { printProps } from './printProps'
 import { withUser } from './withUser';
 import { UserInfo } from './UserInfo'
 import { UserInfoForm } from './UserInfoForm';
+import { ProductInfoForm } from './ProductInfoForm';
+import { BothUserAndProductInfoForm } from './BothUserAndProductInfoForm';
 
 const UserInfoWrapped = printProps(UserInfo);  
 
@@ -36,6 +38,14 @@ function App() {
 
   return (
     <div className="App">
+      <div style={{ backgroundColor: '#f0f0f0', padding: '10px' }}>
+        <BothUserAndProductInfoForm />
+        <hr />
+      </div>
+
+      <ProductInfoForm />
+      <hr/>
+
       <UserInfoForm />
       <hr />
 

@@ -44,25 +44,25 @@ let users = [
     }
 ]
 
-const products = [
+let products = [
     {
         id: 1,
         name: 'Flat-Screen TV',
-        price: '$1000',
+        price: '1000',
         description: 'This is a flat-screen TV',
         rating: 2.25
     },
     {
         id: 2,
         name: 'Laptop',
-        price: '$2000',
+        price: '2000',
         description: 'This is a laptop',
         rating: 4.5
     },
     {
         id: 3,
         name: 'Smartphone',
-        price: '$500',
+        price: '500',
         description: 'This is a smartphone',
         rating: 3.8
     }
@@ -81,7 +81,7 @@ app.get('/users/:id', (req, res) => {
     res.json(user);
 });
 
-app.post('/users/:id', (req, res) => {
+app.put('/users/:id', (req, res) => {
     const id = parseInt(req.params.id);
     let user = users.find(user => user.id === id);
     if (!user) {
@@ -104,6 +104,21 @@ app.get('/products/:id', (req, res) => {
     res.json(product);
 }
 );
+
+app.put('/products/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    let product = products.find(user => user.id === id);
+    if (!product) {
+        res.status(404).send('Product not found');
+    }
+    const updatedProduct = req.body;
+    product = { ...product, ...updatedProduct };
+    products = products.map(p => p.id === id ? product : p);
+
+    console.log(product);
+    console.log(products);
+    res.json(product);
+});
 
 app.get('/products', (req, res) => {
     res.json(products);

@@ -24,7 +24,7 @@ export const withEditableUser = (Component, userId, userResourceName = "user") =
         const onSaveUser = async () => {
             console.log("Saving user: ", currentUser);
             const response = await fetch(`http://localhost:8080/users/${userId}`, {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
