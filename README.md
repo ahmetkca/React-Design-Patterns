@@ -14,3 +14,5 @@
 [Higher-Order Components Design pattern](https://github.com/ahmetkca/React-Design-Patterns/tree/higher-order-components)
 > A component that returns another component instead of JSX. Their use case could be sharing complex behavior between multiple components (much like with container components). Another use case could be adding <u>extra functionality</u> to existing components
 
+[Custom Hooks Design pattern](https://github.com/ahmetkca/React-Design-Patterns/tree/custom-hooks)
+> Special hooks that we define ourselves and that usually combine the functionality of one or more existing React hooks like `useState` or `useEffect`. They are used for <u>sharing complex behavior</u> between multiple components (much like HOCs and Container components)
