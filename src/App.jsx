@@ -1,3 +1,4 @@
+import { BigSuccessButton, DangerButton } from './composition'
 import { RecursiveComponent } from './RecursiveComponent'
 
 
@@ -45,7 +46,16 @@ const nestedObject = {
 function App() {
 
   return (
-    <RecursiveComponent data={nestedObject} />
+    <div>
+      <DangerButton text="Cancel" onClick={() => {
+        setTimeout(() => {
+          alert("Cancelled")
+        }
+        , 1000)
+      }}/>
+      <BigSuccessButton text="Accept" />
+      <RecursiveComponent data={nestedObject} />
+    </div>
   )
 }
 
