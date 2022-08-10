@@ -1,8 +1,8 @@
 import React from "react";
-import { useUser } from "./hooks/useUser";
+import { useCurrentUser } from "./hooks/useCurrentUser";
 
-export const UserInfo = ({ userId }) => {
-  const [ user, loading ] = useUser(userId);
+export const CurrentUserInfo = () => {
+  const [ user, loading ] = useCurrentUser();
 
   const { name, age, hairColor, hobbies } = user || {}
 
