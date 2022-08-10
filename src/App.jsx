@@ -1,33 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { RecursiveComponent } from './RecursiveComponent'
+
+
+
+const nestedObject = {
+  a: {
+    a1: 1,
+    a2: 2,
+    a3: 3,
+    a4: 4,
+    a5: 5,
+    a6: 6,
+  },
+  b: {
+    b1: 2,
+    b2: {
+      b21: 3,
+      b22: 4,
+      b23: {
+        b231: {
+          b2311: {
+            message: "Really Deep Nesting",
+          },
+        }
+      }
+    }
+  },
+  c: {
+    c1: 6,
+    c2: {
+      c21: 7,
+      c22: 8,
+      c23: {
+        c231: {
+          c2311: {
+            message: "Hello World",
+          },
+        }
+      }
+    }
+  }
+}
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <RecursiveComponent data={nestedObject} />
   )
 }
 
