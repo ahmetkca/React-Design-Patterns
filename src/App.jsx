@@ -2,6 +2,7 @@ import './App.css'
 import { CurrentUserInfo } from './CurrentUserInfo'
 import { ResourceInfo } from './ResourceInfo';
 import { UserInfo } from './UserInfo'
+import { UserInfoWithUseDataSourceHook } from './UserInfoWithUseDataSourceHook';
 
 const userId = 2;
 
@@ -17,6 +18,9 @@ function App() {
       <UserInfo userId={3} />
       <hr/>
       <ResourceInfo resourceUrl={`http://localhost:8080/products/1`} />
+      <hr/>
+      <h1>Fetching User info with useDataSource custom hook</h1>
+      <UserInfoWithUseDataSourceHook userId={userId} />
     </div>
     
   )
