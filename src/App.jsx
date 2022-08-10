@@ -1,6 +1,8 @@
 import { BigSuccessButton, DangerButton } from './composition'
 import { RecursiveComponent } from './RecursiveComponent'
 
+import { DangerButton as PartiallyDangerButton, BigSuccessButton as PartiallyBigSuccessButton } from './partiallyApply';
+
 
 
 const nestedObject = {
@@ -47,6 +49,7 @@ function App() {
 
   return (
     <div>
+      <p>Explicitly creating different types of predefined Buttons</p>
       <DangerButton text="Cancel" onClick={() => {
         setTimeout(() => {
           alert("Cancelled")
@@ -54,6 +57,18 @@ function App() {
         , 1000)
       }}/>
       <BigSuccessButton text="Accept" />
+      <hr />
+      <p>Creating new types of Buttons by using Higher-Order function (No explicit creation)</p>
+      <PartiallyBigSuccessButton text="Accept" />
+      <hr />
+      <PartiallyDangerButton text="Cancel" onClick={() => {
+        setTimeout(() => {
+          alert("Cancelled")
+        }
+        , 1000)
+      }
+      }/>
+      <hr />
       <RecursiveComponent data={nestedObject} />
     </div>
   )
