@@ -16,3 +16,9 @@
 
 [Custom Hooks Design pattern](https://github.com/ahmetkca/React-Design-Patterns/tree/custom-hooks)
 > Special hooks that we define ourselves and that usually combine the functionality of one or more existing React hooks like `useState` or `useEffect`. They are used for <u>sharing complex behavior</u> between multiple components (much like HOCs and Container components)
+
+[Functional Programming and React](https://github.com/ahmetkca/React-Design-Patterns/tree/functional-programming-and-react)
+> A method of organizing code in a way that: 
+>1. Minimizes mutation and state change
+>2. Keeps functions independent of external data (Pure Functions)
+>3. Treats functions as first-class citizen
